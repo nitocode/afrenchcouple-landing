@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Politique de confidentialité — A French Couple</title>
+  <meta name="description" content="Politique de confidentialité de l'application A French Couple : aucune donnée personnelle collectée, tout reste sur votre téléphone." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --cream: #FBF4E8; --ink: #26201A; --ink-soft: #5C5348; --bordeaux: #8C2F39; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 24px 0; }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand img { width: 40px; height: 40px; }
+    .brand span { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; }
+    .lang-switch { display: flex; background: #fff; border: 3px solid var(--ink); border-radius: 999px; overflow: hidden; box-shadow: 3px 3px 0 var(--ink); }
+    .lang-switch button { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; padding: 8px 16px; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; }
+    .lang-switch button[aria-pressed="true"] { background: var(--bordeaux); color: #fff; }
+    main { padding: 16px 0 64px; }
+    h1 { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: clamp(28px, 5vw, 38px); line-height: 1.15; }
+    .updated { font-size: 14px; font-weight: 700; color: var(--ink-soft); margin-top: 8px; }
+    .lead { font-size: 18px; font-weight: 700; line-height: 1.6; margin-top: 22px; background: #fff; border: 3px solid var(--ink); border-radius: 18px; box-shadow: 4px 4px 0 var(--ink); padding: 18px 20px; }
+    h2 { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 21px; margin: 34px 0 10px; }
+    p, li { font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+    ul { margin: 10px 0 0 22px; }
+    li { margin-bottom: 6px; }
+    a { color: var(--bordeaux); }
+    footer { padding: 20px 0 40px; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <img src="assets/heart-logo.png" alt="A French Couple" />
+        <span>A French Couple</span>
+      </a>
+      <div class="lang-switch" role="group">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1 data-i18n="title"></h1>
+      <p class="updated" data-i18n="updated"></p>
+      <p class="lead" data-i18n="lead"></p>
+
+      <h2 data-i18n="h1"></h2>
+      <p data-i18n="p1"></p>
+
+      <h2 data-i18n="h2"></h2>
+      <p data-i18n="p2"></p>
+      <ul>
+        <li data-i18n="li1"></li>
+        <li data-i18n="li2"></li>
+        <li data-i18n="li3"></li>
+        <li data-i18n="li4"></li>
+      </ul>
+
+      <h2 data-i18n="h3"></h2>
+      <p data-i18n="p3"></p>
+
+      <h2 data-i18n="h4"></h2>
+      <p data-i18n="p4"></p>
+
+      <h2 data-i18n="h5"></h2>
+      <p data-i18n="p5"></p>
+
+      <h2 data-i18n="h6"></h2>
+      <p data-i18n="p6"></p>
+
+      <h2 data-i18n="h7"></h2>
+      <p data-i18n-html="p7"></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 A French Couple</span>
+      <span><a href="index.html" data-i18n="back"></a></span>
+    </div>
+  </footer>
+
+  <script>
+    const STRINGS = {
+      fr: {
+        docTitle: 'Politique de confidentialité — A French Couple',
+        title: 'Politique de confidentialité',
+        updated: 'Dernière mise à jour : 28 juillet 2026',
+        lead: "A French Couple ne collecte aucune donnée personnelle. L'application fonctionne entièrement hors ligne : tout ce que vous faites reste sur votre téléphone.",
+        h1: 'Qui édite cette application ?',
+        p1: "A French Couple est une application éditée par un développeur indépendant, joignable à l'adresse contact@afrenchcouple.com.",
+        h2: 'Quelles données sont enregistrées ?',
+        p2: "Uniquement des informations de jeu, stockées localement sur votre appareil, jamais transmises à qui que ce soit :",
+        li1: "vos préférences (langue, apparence claire ou sombre, situation de couple choisie à l'installation) ;",
+        li2: "les trois réglages facultatifs du profil couple (enfants, mariage, vie commune), utilisés uniquement pour adapter la formulation de certaines questions ;",
+        li3: "les questions déjà vues et le compteur de questions explorées, pour ne pas vous les reproposer ;",
+        li4: "le statut de vos achats, afin de débloquer les packs que vous avez acquis.",
+        h3: 'Ces données quittent-elles mon téléphone ?',
+        p3: "Non. Il n'existe aucun serveur A French Couple : aucune de ces informations n'est envoyée, partagée ou revendue. Désinstaller l'application efface définitivement l'ensemble de ces données.",
+        h4: 'Faut-il créer un compte ?',
+        p4: "Non. L'application ne demande ni compte, ni adresse e-mail, ni numéro de téléphone, ni accès à vos contacts, à votre position ou à votre appareil photo.",
+        h5: 'Et les achats ?',
+        p5: "Les achats intégrés sont traités par Google Play. A French Couple ne voit jamais vos coordonnées bancaires et n'y a pas accès. Google traite ces paiements selon sa propre politique de confidentialité.",
+        h6: 'Et les enfants ?',
+        p6: "L'application s'adresse à un public adulte : certains packs abordent la vie de couple et l'intimité. Elle n'est pas destinée aux enfants et ne collecte sciemment aucune donnée les concernant.",
+        h7: 'Une question ?',
+        p7: 'Écrivez-nous à <a href="mailto:contact@afrenchcouple.com">contact@afrenchcouple.com</a>, nous répondons.',
+        back: "Retour à l'accueil",
+      },
+      en: {
+        docTitle: 'Privacy Policy — A French Couple',
+        title: 'Privacy Policy',
+        updated: 'Last updated: 28 July 2026',
+        lead: 'A French Couple collects no personal data. The app works entirely offline: everything you do stays on your phone.',
+        h1: 'Who publishes this app?',
+        p1: 'A French Couple is published by an independent developer, reachable at contact@afrenchcouple.com.',
+        h2: 'What data is stored?',
+        p2: 'Only gameplay information, stored locally on your device and never sent to anyone:',
+        li1: 'your preferences (language, light or dark appearance, relationship stage chosen at setup);',
+        li2: 'the three optional couple-profile toggles (children, marriage, living together), used only to adapt the wording of some questions;',
+        li3: 'which questions you have already seen and the counter of questions explored, so they are not shown again;',
+        li4: 'your purchase status, in order to unlock the packs you bought.',
+        h3: 'Does this data leave my phone?',
+        p3: 'No. There is no A French Couple server: none of this information is sent, shared or sold. Uninstalling the app permanently deletes all of it.',
+        h4: 'Do I need an account?',
+        p4: 'No. The app asks for no account, no email address, no phone number, and no access to your contacts, location or camera.',
+        h5: 'What about purchases?',
+        p5: 'In-app purchases are handled by Google Play. A French Couple never sees or has access to your payment details. Google processes these payments under its own privacy policy.',
+        h6: 'What about children?',
+        p6: 'The app is intended for adults: some packs deal with relationships and intimacy. It is not directed at children and knowingly collects no data about them.',
+        h7: 'Any questions?',
+        p7: 'Write to <a href="mailto:contact@afrenchcouple.com">contact@afrenchcouple.com</a> — we answer.',
+        back: 'Back to home',
+      },
+    };
+
+    const SUPPORTED = Object.keys(STRINGS);
+    const STORAGE_KEY = 'afc-lang';
+
+    function detectLang() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED.includes(saved)) return saved;
+      for (const tag of navigator.languages || [navigator.language || 'en']) {
+        const base = String(tag).toLowerCase().split('-')[0];
+        if (SUPPORTED.includes(base)) return base;
+      }
+      return 'en';
+    }
+
+    function applyLang(lang) {
+      const dict = STRINGS[lang];
+      document.documentElement.lang = lang;
+      document.title = dict.docTitle;
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        el.textContent = dict[el.dataset.i18n];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        el.innerHTML = dict[el.dataset.i18nHtml];
+      });
+      document.querySelectorAll('.lang-switch button').forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+      });
+    }
+
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        localStorage.setItem(STORAGE_KEY, btn.dataset.lang);
+        applyLang(btn.dataset.lang);
+      });
+    });
+
+    applyLang(detectLang());
+  </script>
+</body>
+</html>
