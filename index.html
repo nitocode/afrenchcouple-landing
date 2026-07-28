@@ -6,6 +6,26 @@
   <title>A French Couple — Le jeu qui fait parler les couples</title>
   <meta name="description" content="Des questions à se poser, des duels à se lancer, des prédictions à parier. Sur un seul téléphone, au bar, au resto ou sur le canapé. Bilingue FR/EN." />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="canonical" href="https://afrenchcouple.com/" />
+
+  <!-- Open Graph / Twitter : aperçu lors des partages (FB, LinkedIn, X, WhatsApp…).
+       Les valeurs sont réécrites par le script i18n selon la langue affichée. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="A French Couple" />
+  <meta property="og:url" content="https://afrenchcouple.com/" />
+  <meta property="og:title" content="A French Couple — Le jeu qui fait parler les couples" />
+  <meta property="og:description" content="Des questions à se poser, des duels à se lancer, des prédictions à parier. Sur un seul téléphone, au bar, au resto ou sur le canapé." />
+  <meta property="og:image" content="https://afrenchcouple.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Ludo et Caro, les mascottes d'A French Couple, autour du logo en cœur tricolore" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A French Couple — Le jeu qui fait parler les couples" />
+  <meta name="twitter:description" content="Des questions à se poser, des duels à se lancer, des prédictions à parier. Sur un seul téléphone, au bar, au resto ou sur le canapé." />
+  <meta name="twitter:image" content="https://afrenchcouple.com/assets/og-image.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -225,6 +245,19 @@
       document
         .querySelector('meta[name="description"]')
         .setAttribute('content', dict.metaDescription);
+
+      // Aperçus de partage : les robots lisent le HTML servi (donc le FR par
+      // défaut), mais on garde les métas cohérentes avec la langue affichée.
+      const setMeta = (selector, value) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', value);
+      };
+      setMeta('meta[property="og:title"]', dict.docTitle);
+      setMeta('meta[property="og:description"]', dict.metaDescription);
+      setMeta('meta[property="og:locale"]', lang === 'fr' ? 'fr_FR' : 'en_US');
+      setMeta('meta[property="og:locale:alternate"]', lang === 'fr' ? 'en_US' : 'fr_FR');
+      setMeta('meta[name="twitter:title"]', dict.docTitle);
+      setMeta('meta[name="twitter:description"]', dict.metaDescription);
 
       document.querySelectorAll('[data-i18n]').forEach((el) => {
         el.textContent = dict[el.dataset.i18n];
