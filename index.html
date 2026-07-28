@@ -29,9 +29,32 @@
     }
     .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; width: 100%; }
     header { padding: 24px 0; }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand img { width: 46px; height: 46px; }
     .brand span { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; }
+    /* Bascule de langue : deux onglets dans une pastille à contour encre. */
+    .lang-switch {
+      display: flex;
+      background: #fff;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .lang-switch button {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      padding: 8px 16px;
+      border: 0;
+      background: transparent;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+    .lang-switch button[aria-pressed="true"] { background: var(--bordeaux); color: #fff; }
     main { flex: 1; display: flex; align-items: center; padding: 32px 0 56px; }
     .hero { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
     .hero-text { flex: 1 1 380px; }
@@ -66,12 +89,7 @@
     .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
     .btn-primary { background: var(--bordeaux); color: #fff; }
     .btn-ghost { background: #fff; color: var(--ink); }
-    .soon {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--ink-soft);
-      margin-top: 14px;
-    }
+    .soon { font-size: 14px; font-weight: 800; color: var(--ink-soft); margin-top: 14px; }
     .soon b { color: var(--ink); }
     .hero-art { flex: 1 1 300px; text-align: center; }
     .hero-art img { width: min(340px, 80vw); height: auto; }
@@ -85,15 +103,9 @@
       padding: 7px 14px;
       box-shadow: 3px 3px 0 var(--ink);
     }
-    footer {
-      padding: 22px 0 30px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink-soft);
-    }
+    footer { padding: 22px 0 30px; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
     footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     footer a { color: var(--bordeaux); }
-    .en-note { font-size: 13px; color: var(--ink-soft); margin-top: 10px; font-weight: 700; }
     @media (max-width: 640px) {
       main { padding-top: 8px; }
       .hero { gap: 16px; }
@@ -104,36 +116,37 @@
 </head>
 <body>
   <header>
-    <div class="wrap brand">
-      <img src="assets/heart-logo.png" alt="Logo A French Couple" />
-      <span>A French Couple</span>
+    <div class="wrap header-row">
+      <div class="brand">
+        <img src="assets/heart-logo.png" alt="A French Couple" />
+        <span>A French Couple</span>
+      </div>
+      <div class="lang-switch" role="group" data-i18n-aria-label="langSwitch">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="wrap hero">
       <div class="hero-text">
-        <h1>Ce soir, on joue à <em>nous</em>.</h1>
-        <p class="sub">
-          Des questions à se poser, des duels à se lancer, des prédictions à parier —
-          sur un seul téléphone, au bar, au resto ou sur le canapé.
-          Le jeu qui fait parler les couples, du premier date au vieux couple.
-        </p>
+        <h1 data-i18n-html="title"></h1>
+        <p class="sub" data-i18n="sub"></p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.afrenchcouple.app" aria-disabled="true" onclick="alert('Bientôt disponible sur Google Play !'); return false;">Bientôt sur Google Play</a>
-          <a class="btn btn-ghost" href="https://www.instagram.com/a_french_couple" target="_blank" rel="noopener">Suivre @a_french_couple</a>
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.afrenchcouple.app" data-i18n="ctaStore" id="cta-store"></a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/a_french_couple" target="_blank" rel="noopener" data-i18n="ctaInsta"></a>
         </div>
-        <p class="soon"><b>En bêta privée.</b> L'app arrive sur Android, puis iOS.</p>
+        <p class="soon" data-i18n-html="beta"></p>
         <div class="badges">
-          <span class="badge">🇫🇷 + 🇬🇧 Bilingue</span>
-          <span class="badge">📵 100 % hors ligne</span>
-          <span class="badge">🔒 Zéro compte, zéro donnée</span>
-          <span class="badge">💶 Achat unique, sans abonnement</span>
+          <span class="badge" data-i18n="badge1"></span>
+          <span class="badge" data-i18n="badge2"></span>
+          <span class="badge" data-i18n="badge3"></span>
+          <span class="badge" data-i18n="badge4"></span>
         </div>
-        <p class="en-note">English inside too — the app is fully bilingual FR/EN.</p>
       </div>
       <div class="hero-art">
-        <img src="assets/mascots-welcome.png" alt="Ludo et Caro, les mascottes du jeu, vous saluent" />
+        <img src="assets/mascots-welcome.png" data-i18n-alt="mascotsAlt" alt="" />
       </div>
     </div>
   </main>
@@ -144,5 +157,99 @@
       <span><a href="mailto:contact@afrenchcouple.com">contact@afrenchcouple.com</a></span>
     </div>
   </footer>
+
+  <script>
+    // i18n minimal : bascule instantanée sans rechargement, langue initiale
+    // déduite du navigateur, choix mémorisé pour les visites suivantes.
+    const STRINGS = {
+      fr: {
+        docTitle: 'A French Couple — Le jeu qui fait parler les couples',
+        metaDescription:
+          "Des questions à se poser, des duels à se lancer, des prédictions à parier. Sur un seul téléphone, au bar, au resto ou sur le canapé. Bilingue FR/EN.",
+        langSwitch: 'Changer de langue',
+        title: 'Ce soir, on joue à <em>nous</em>.',
+        sub: "Des questions à se poser, des duels à se lancer, des prédictions à parier — sur un seul téléphone, au bar, au resto ou sur le canapé. Le jeu qui fait parler les couples, du premier date au vieux couple.",
+        ctaStore: 'Bientôt sur Google Play',
+        ctaStoreAlert: 'Bientôt disponible sur Google Play !',
+        ctaInsta: 'Suivre @a_french_couple',
+        beta: "<b>En bêta privée.</b> L'app arrive sur Android, puis iOS.",
+        badge1: 'Bilingue FR / EN',
+        badge2: '100 % hors ligne',
+        badge3: 'Zéro compte, zéro donnée',
+        badge4: 'Achat unique, sans abonnement',
+        mascotsAlt: 'Ludo et Caro, les mascottes du jeu, vous saluent',
+      },
+      en: {
+        docTitle: 'A French Couple — The game that gets couples talking',
+        metaDescription:
+          'Questions to ask each other, duels to settle, predictions to bet on. On a single phone, at the bar, at dinner or on the couch. Bilingual FR/EN.',
+        langSwitch: 'Switch language',
+        title: "Tonight, let's play <em>us</em>.",
+        sub: 'Questions to ask each other, duels to settle, predictions to bet on — on a single phone, at the bar, at dinner or on the couch. The game that gets couples talking, from first date to old flames.',
+        ctaStore: 'Coming soon on Google Play',
+        ctaStoreAlert: 'Coming soon on Google Play!',
+        ctaInsta: 'Follow @a_french_couple',
+        beta: '<b>In private beta.</b> Android first, then iOS.',
+        badge1: 'Bilingual FR / EN',
+        badge2: '100% offline',
+        badge3: 'No account, no data',
+        badge4: 'One-time purchase, no subscription',
+        mascotsAlt: 'Ludo and Caro, the game mascots, waving at you',
+      },
+    };
+
+    const SUPPORTED = Object.keys(STRINGS);
+    const STORAGE_KEY = 'afc-lang';
+
+    function detectLang() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED.includes(saved)) return saved;
+      const preferred = navigator.languages || [navigator.language || 'en'];
+      for (const tag of preferred) {
+        const base = String(tag).toLowerCase().split('-')[0];
+        if (SUPPORTED.includes(base)) return base;
+      }
+      return 'en';
+    }
+
+    function applyLang(lang) {
+      const dict = STRINGS[lang];
+      document.documentElement.lang = lang;
+      document.title = dict.docTitle;
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute('content', dict.metaDescription);
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        el.textContent = dict[el.dataset.i18n];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        el.innerHTML = dict[el.dataset.i18nHtml];
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+        el.alt = dict[el.dataset.i18nAlt];
+      });
+      document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+        el.setAttribute('aria-label', dict[el.dataset.i18nAriaLabel]);
+      });
+      document.querySelectorAll('.lang-switch button').forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+      });
+
+      document.getElementById('cta-store').onclick = (event) => {
+        event.preventDefault();
+        alert(dict.ctaStoreAlert);
+      };
+    }
+
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        localStorage.setItem(STORAGE_KEY, btn.dataset.lang);
+        applyLang(btn.dataset.lang);
+      });
+    });
+
+    applyLang(detectLang());
+  </script>
 </body>
 </html>
